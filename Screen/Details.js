@@ -10,7 +10,7 @@ import {
 import { FocusedStatusBar, Detailbid, DetailsDes } from "../Components";
 import { CircleButton, RectButton } from "../Components/Button";
 import { SubInfo } from "../Components/Subinfo";
-import { assets, FONTS, SHADOWS, SIZES, NFTData } from "../constants";
+import { assets, FONTS, SHADOWS, SIZES, NFTData, COLORS } from "../constants";
 const DetailsbidHeader = ({ data, navigation }) => (
   <View style={{ width: "100%", height: 373 }}>
     <Image
@@ -70,7 +70,18 @@ const Details = ({ route, navigation }) => {
             <DetailsbidHeader data={data} navigation={navigation} />
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
-              <DetailsDes />
+              <DetailsDes data={data} />
+              {data.bids.length > 0 && (
+                <Text
+                  style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary,
+                  }}
+                >
+                  Current Bid
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}
